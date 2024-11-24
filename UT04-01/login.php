@@ -1,3 +1,7 @@
+<?php
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,8 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Te Damos la Bienvenida a mi WEB en Github</h1>
-    <br><br>
-    <a href="UT-04-01/form.html">Enlace al Formulario de Entrada</a>
+    <?php
+        echo "<h1>Hola $email con Número de Teléfono: $phone.</h1>";
+    ?>
 </body>
 </html>
