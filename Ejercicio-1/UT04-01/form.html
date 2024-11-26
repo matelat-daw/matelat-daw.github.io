@@ -8,12 +8,17 @@
 <body>
     <h1>Formulario de Entrada al Sitio</h1>
     <br><br>
-    <form action="login.php" method="post">
-        <label><input type="text" name="email"></input> E-mail</label>
+    <form>
+        <label><input type="text" id="email"></input> E-mail</label>
         <br><br>
-        <label><input type="number" name="phone"> Teléfono</label>
+        <label><input type="number" id="phone"> Teléfono</label>
         <br><br>
-        <input type="submit" value="Login">
     </form>
+    <br><br>
+    <h3 id="login">&nbsp;</h3>
+    <script src="js/main.js"></script>
+    <button onclick="login()">Login</button>
+    <br><br>
+    <a href="../../index.html">Volver a la Lista de Ejercicios</a>
 </body>
 </html>
