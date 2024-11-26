@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosas con Javasript</title>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <h1>Te Damos la Bienvenida a la WEB de Funciones de Javascript</h1>
+    <br><br>
+    <h2>Función 1: Calculadora.</h2>
+    <h3>Ingresa los Números y Elige del Selector la Operación Deseada</h3>
+    <label><input id="num1" type="number"> Ingresa el Primer Número</label>
+    <br><br>
+    <label><input id="num2" type="number"> Ingresa el Segundo Número</label>
+    <br><br>
+    <label><select id="oper">
+        <option value="" selected disabled>Selecciona la Operación</option>
+        <option value="+">Sumar</option>
+        <option value="-">Restar</option>
+        <option value="*">Multiplicar</option>
+        <option value="/">Dividir</option>
+    </select> Elige una Operación</label>
+    <br><br>
+    <button onclick="operate()">Calcular</button>
+    <h3 id="result"></h3>
+</body>
+</html>
