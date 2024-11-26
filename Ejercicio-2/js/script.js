@@ -20,7 +20,7 @@ function operate()
             total = DOM.num1.value * DOM.num2.value;
             break;
         case "/":
-            if (DOM.num2.value == "0")
+            if (DOM.num2.value == "0" || DOM.num2.value == "")
             {
                 alert("No Mostroso no podés dividir por 0.");
                 total = "Intenta Otra Operación";
