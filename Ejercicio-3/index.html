@@ -13,13 +13,13 @@
             <fieldset>
                 <legend>Datos de Usuario</legend>
                 <div class="container-2col">
-                    <div>
+                    <div class="width-50">
                         <label for="username">Nombre de Usuario</label>
-                        <input type="text" name="username" placeholder="Nombre de Usuario" size="50px">
+                        <input type="text" name="username" placeholder="Nombre de Usuario" size="100">
                     </div>
-                    <div class="pass">
+                    <div class="width-50 m-left">
                         <label for="pass">Contraseña</label>
-                        <input id="pass" type="password" name="pass" placeholder="Introduce Contraseña" size="50px">
+                        <input id="pass" type="password" name="pass" placeholder="Introduce Contraseña" size="100">
                         <input id="check" type="checkbox">
                         <label id="checkit" for="check">Mostrar Contraseña</label>
                     </div>
@@ -28,41 +28,97 @@
             <fieldset>
                 <legend>Datos Personales</legend>
                 <div class="container-2col">
-                    <div>
+                    <div class="width-50">
                         <label for="userdata">Nombre</label>
-                        <input type="text" name="userdata" placeholder="Nombre" size="50px">
+                        <input type="text" name="userdata" placeholder="Nombre" size="100">
                     </div>
-                    <div class="surnames">
+                    <div class="width-50 m-left">
                         <label for="surnames">Apellidos</label>
-                        <input type="text" name="surnames" placeholder="Apellidos" size="50px">
+                        <input type="text" name="surnames" placeholder="Apellidos" size="100">
                     </div>
                 </div>
-                <div class="container-2col">
-                    <div>
+                <div class="container-2col separate">
+                    <div class="width-50">
                         <label for="phone">Teléfono</label>
-                        <input type="text" name="phone" placeholder="teléfono" size="50px">
+                        <input type="text" name="phone" placeholder="Ejem: (+34)922123123" size="100">
                     </div>
-                    <div class="code">
+                    <div class="width-50 m-left">
                         <label for="cp">Código Postal</label>
-                        <input type="text" name="cp" placeholder="Código Postal" size="50px">
+                        <input type="text" name="cp" placeholder="38XXX" size="100">
                     </div>
                 </div>
                 <div class="container-3col">
-                    <div class="col-1">
-                        <label for="phone">Teléfono</label>
-                        <input type="text" name="phone" placeholder="teléfono" size="50px">
+                    <div class="width-33">
+                        <label for="document">DNI/NIE</label>
+                        <select class="aside" name="document">
+                            <option value="">...</option>
+                            <option value="DNI">DNI</option>
+                            <option value="NIE">NIE</option>
+                        </select>
+                        <input class="aside" type="text" name="dni" placeholder="DNI/NIE" size="50">
                     </div>
-                    <div class="col-2">
-                        <label for="phone">Teléfono</label>
-                        <input type="text" name="phone" placeholder="teléfono" size="50px">
+                    <div class="width-33 m-left">
+                        <label for="account">Crear Cuenta Como:</label>
+                        <div class="aside">
+                            <input class="aside" type="radio" name="account"><label class="aside">Particular</label>
+                            <input class="aside" type="radio" name="account"><label class="aside">Empresa</label>
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <label for="cp">Código Postal</label>
-                        <input type="text" name="cp" placeholder="Código Postal" size="50px">
+                    <div class="width-33 m-left">
+                        <label for="year">Año de Nacimiento</label>
+                        <select id="year" name="year"></select>
+                    </div>
+                </div>
+                <div class="container-3col">
+                    <div class="width-33">
+                        <label>Elige tus Aficiones:</label>
+                        <div class="separate">
+                            <input class="aside" type="checkbox" name="music">
+                            <label for="music" class="aside">Música</label>
+                        </div>
+                        <div>
+                            <input class="aside" type="checkbox" name="handmade">
+                            <label for="handmade" class="aside">Manualidades</label>
+                        </div>
+                    </div>
+                    <div class="col-2 width-33">
+                        <label>&nbsp;</label>
+                        <div class="separate">
+                            <input class="aside" type="checkbox" name="sport">
+                            <label for="sport" class="aside">Deporte</label>
+                        </div>
+                        <div>
+                            <input class="aside" type="checkbox" name="art">
+                            <label for="art" class="aside">Artes</label>
+                        </div>
+                    </div>
+                    <div class="col-3 width-33">
+                        <label>&nbsp;</label>
+                        <div class="separate">
+                            <input class="aside" type="checkbox" name="games">
+                            <label for="games" class="aside">Vídeo Juegos</label>
+                        </div>
+                        <div>
+                            <input class="aside" type="checkbox" name="lecture">
+                            <label for="lecture" class="aside">Lectura</label>
+                        </div>
                     </div>
                 </div>
             </fieldset>
+            <fieldset>
+                <legend>Datos de Publicación</legend>
+                <div class="container-1col">
+                    <label for="title">Título</label>
+                    <input class="full" type="text" name="title" placeholder="Título">
+                </div>
+                <div class="container-1col">
+                    <label for="desc">Descripción</label>
+                    <textarea class="full" name="desc" cols="80" rows="10"></textarea>
+                </div>
+            </fieldset>
+            <input type="submit" value="Envíame!">
         </form>
     </main>
+    <script src="js/main.js"></script>
 </body>
 </html>

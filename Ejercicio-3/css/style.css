@@ -1,6 +1,13 @@
-label, input
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.15em;
+}
+
+label, input, select
 {
     display: block;
+    font-size: .8em;
 }
 
 fieldset
@@ -17,8 +24,34 @@ legend
 #check, #checkit
 {
     display: inline-block;
-    margin-top: 16px;
-    
+    margin-top: 16px;   
+}
+
+#year
+{
+    width: 34.5em;
+}
+
+.full
+{
+    width: 100%;
+}
+
+.aside
+{
+    display: inline-block;
+}
+
+.separate
+{
+    padding: 20px 0;
+}
+
+.container-1col
+{
+    display: flex;
+    grid-template-columns: 1fr;
+    margin-top: 10px;
 }
 
 .container-2col
@@ -32,28 +65,20 @@ legend
 {
     display: flex;
     grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 20px;
+}
+
+.m-left
+{
+    margin-left: 2em;
+}
+
+.width-50
+{
     width: 50%;
-    margin-top: 10px;
 }
 
-.pass, .surnames, .code
+.width-33
 {
-    margin-left: 2em;
-}
-
-.col-1
-{
-    width: 30%;
-}
-
-.col-2
-{
-    width: 30%;
-    margin-left: 2em;
-}
-
-.col-3
-{
-    width: 30%;
-    margin-left: 2em;
+    width: 33.33%;
 }
