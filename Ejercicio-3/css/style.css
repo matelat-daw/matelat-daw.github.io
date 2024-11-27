@@ -21,14 +21,39 @@ legend
     
 }
 
-.container
+.container-2col
 {
     display: flex;
     grid-template-columns: 1fr 1fr;
     margin-top: 10px;
 }
 
+.container-3col
+{
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 50%;
+    margin-top: 10px;
+}
+
 .pass, .surnames, .code
 {
+    margin-left: 2em;
+}
+
+.col-1
+{
+    width: 30%;
+}
+
+.col-2
+{
+    width: 30%;
+    margin-left: 2em;
+}
+
+.col-3
+{
+    width: 30%;
     margin-left: 2em;
 }
