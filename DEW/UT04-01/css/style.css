@@ -10,6 +10,11 @@ label, input, select, textarea
     font-size: .8em;
 }
 
+input:invalid
+{
+    border: 1px solid salmon;
+}
+
 fieldset
 {
     border: 0;
