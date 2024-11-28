@@ -1,0 +1,112 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.15em;
+}
+
+label, input, select, textarea
+{
+    display: block;
+    font-size: .8em;
+}
+
+fieldset
+{
+    border: 0;
+}
+
+legend
+{
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+small
+{
+    float: right;
+    font-size: .66em;
+}
+
+#check, #checkit
+{
+    display: inline-block;
+    margin-top: 16px;   
+}
+
+#year
+{
+    width: 34.5em;
+}
+
+.full
+{
+    width: 100%;
+}
+
+.aside
+{
+    display: inline-block;
+}
+
+.separate
+{
+    padding: 15px 0;
+}
+
+.container-1col
+{
+    display: flex;
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+}
+
+.container-2col
+{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 10px;
+}
+
+.container-3col
+{
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 20px;
+}
+
+.m-left
+{
+    margin-left: 2em;
+}
+
+.width-50
+{
+    width: 50%;
+}
+
+.width-33
+{
+    width: 33.33%;
+}
+
+.button
+{
+    vertical-align: middle;
+}
+
+.btn
+{
+    width: 10em;
+    height: 5em;
+    background-color: aqua;
+}
+
+.btn:hover
+{
+    border: 2px solid blue;
+}
+
+.btn:active
+{
+    border: 2px solid white;
+}
