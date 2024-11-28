@@ -10,7 +10,7 @@ label, input, select, textarea
     font-size: .8em;
 }
 
-input:invalid
+input:invalid, textarea:invalid
 {
     border: 1px solid salmon;
 }
