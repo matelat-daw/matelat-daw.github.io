@@ -9,17 +9,17 @@
 <body>
     <h1>Te Damos la Bienvenida al Formulario con Estilo y Envió de Datos</h1>
     <main>
-        <form action="https://w3schools.com/action_page.php" method="post">
+        <form action="https://www.w3schools.com/action_page.php" method="post">
             <fieldset>
                 <legend>Datos de Usuario</legend>
                 <div class="container-2col">
                     <div class="width-50">
                         <label for="username">Nombre de Usuario</label>
-                        <input type="text" name="username" placeholder="Nombre de Usuario" size="100">
+                        <input type="text" name="username" placeholder="Nombre de Usuario" size="100" required>
                     </div>
                     <div class="width-50 m-left">
                         <label for="pass">Contraseña</label>
-                        <input id="pass" type="password" name="pass" placeholder="Introduce Contraseña" size="100">
+                        <input id="pass" type="password" name="pass" placeholder="Introduce Contraseña" size="100" required>
                         <input id="check" type="checkbox">
                         <label id="checkit" for="check">Mostrar Contraseña</label>
                     </div>
@@ -30,38 +30,38 @@
                 <div class="container-2col">
                     <div class="width-50">
                         <label for="userdata">Nombre</label>
-                        <input type="text" name="userdata" placeholder="Nombre" size="100">
+                        <input type="text" name="userdata" placeholder="Nombre" size="100" required>
                     </div>
                     <div class="width-50 m-left">
                         <label for="surnames">Apellidos</label>
-                        <input type="text" name="surnames" placeholder="Apellidos" size="100">
+                        <input type="text" name="surnames" placeholder="Apellidos" size="100" required>
                     </div>
                 </div>
                 <div class="container-2col separate">
                     <div class="width-50">
                         <label for="phone">Teléfono</label>
-                        <input type="text" name="phone" placeholder="Ejem: (+34)922123123" size="100">
+                        <input type="text" name="phone" placeholder="Ejem: (+34)922123123" size="100" required>
                     </div>
                     <div class="width-50 m-left">
                         <label for="cp">Código Postal</label>
-                        <input type="text" name="cp" placeholder="38XXX" size="100">
+                        <input type="text" name="cp" placeholder="38XXX" size="100" required>
                     </div>
                 </div>
                 <div class="container-3col">
                     <div class="width-33">
                         <label for="document">DNI/NIE</label>
-                        <select class="aside" name="document">
+                        <select class="aside" name="document" required>
                             <option value="">...</option>
                             <option value="DNI">DNI</option>
                             <option value="NIE">NIE</option>
                         </select>
-                        <input class="aside" type="text" name="dni" placeholder="DNI/NIE" size="50">
+                        <input class="aside" type="text" name="dni" placeholder="DNI/NIE" size="50" required>
                     </div>
                     <div class="width-33 m-left">
                         <label for="account">Crear Cuenta Como:</label>
                         <div class="aside">
-                            <input class="aside" type="radio" name="account"><label class="aside">Particular</label>
-                            <input class="aside" type="radio" name="account"><label class="aside">Empresa</label>
+                            <input class="aside" type="radio" name="account" value="particular" checked><label class="aside">Particular</label>
+                            <input class="aside" type="radio" name="account" value="empresa"><label class="aside">Empresa</label>
                         </div>
                     </div>
                     <div class="width-33 m-left">
@@ -108,15 +108,23 @@
             <fieldset>
                 <legend>Datos de Publicación</legend>
                 <div class="container-1col">
-                    <label for="title">Título</label>
-                    <input class="full" type="text" name="title" placeholder="Título">
+                    <div>
+                        <label for="title">Título</label>
+                        <input onkeydown="countTitle(event)" maxlength="15" class="full" type="text" name="title" placeholder="Título" size="219" required>
+                        <small id="title">0</small><small>/15</small>
+                    </div>
                 </div>
                 <div class="container-1col">
-                    <label for="desc">Descripción</label>
-                    <textarea class="full" name="desc" cols="80" rows="10"></textarea>
+                    <div class="separate">
+                        <label for="desc">Descripción</label>
+                        <textarea onkeydown="countDesc(event)" maxlength="120" class="full" name="desc" cols="270" rows="10" required></textarea>
+                        <small id="desc">0</small>/<small>120</small>
+                    </div>
                 </div>
             </fieldset>
-            <input type="submit" value="Envíame!">
+            <div class="button">
+                <input class="btn" type="submit" value="Envíame!">
+            </div>
         </form>
     </main>
     <script src="js/main.js"></script>

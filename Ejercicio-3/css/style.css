@@ -4,7 +4,7 @@ body
     font-size: 1.15em;
 }
 
-label, input, select
+label, input, select, textarea
 {
     display: block;
     font-size: .8em;
@@ -81,4 +81,26 @@ legend
 .width-33
 {
     width: 33.33%;
+}
+
+.button
+{
+    margin-top: 3em;
+}
+
+.btn
+{
+    width: 10em;
+    height: 5em;
+    background-color: aqua;
+}
+
+.btn:hover
+{
+    border: 2px solid blue;
+}
+
+.btn:active
+{
+    border: 2px solid white;
 }
