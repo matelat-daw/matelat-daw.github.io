@@ -22,7 +22,7 @@ function operate()
         case "/":
             if (DOM.num2.value == "0" || DOM.num2.value == "")
             {
-                alert("No Mostroso no podés dividir por 0.");
+                alert("No lo Siento, no Puedes Dividir por 0.");
                 total = "Intenta Otra Operación";
             }
             else
