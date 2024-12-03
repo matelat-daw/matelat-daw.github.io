@@ -9,21 +9,21 @@
 <body>
     <h1>Te Damos la Bienvenida al Formulario con Estilo y Envió de Datos</h1>
     <main>
-        <form action="https://www.w3schools.com/action_page.php" method="post" onsubmit="return verify()">
+        <form action="https://www.w3schools.com/action_page.php" method="post">
             <fieldset>
                 <legend>Datos de Usuario</legend>
                 <div class="container-2col">
                     <div class="width-50">
                         <label for="username">Nombre de Usuario</label>
                         <input id="username" type="text" name="NombreUsuario" placeholder="Nombre de Usuario" size="100" required>
-                        <span id="username_required"></span>
+                        <span id="username_required">Campo Requerido</span>
                     </div>
                     <div class="width-50 m-left">
                         <label for="pass">Contraseña</label>
                         <input id="pass" type="password" name="Contrasena" placeholder="Introduce Contraseña" size="100" required>
-                        <span id="pass_required"></span>
+                        <span id="pass_required">Campo Requerido</span>
                         <input id="check" type="checkbox" onchange="togglePass()">
-                        <label for="check">Mostrar Contraseña</label>
+                        <label id="checkit" for="check">Mostrar Contraseña</label>
                     </div>
                 </div>
             </fieldset>
@@ -33,24 +33,24 @@
                     <div class="width-50">
                         <label for="userdata">Nombre</label>
                         <input id="userdata" type="text" name="Nombre" placeholder="Nombre" size="100" required>
-                        <span id="userdata_required"></span>
+                        <span id="userdata_required">Campo Requerido</span>
                     </div>
                     <div class="width-50 m-left">
                         <label for="surnames">Apellidos</label>
                         <input id="surname" type="text" name="Apellidos" placeholder="Apellidos" size="100" required>
-                        <span id="surname_required"></span>
+                        <span id="surname_required">Campo Requerido</span>
                     </div>
                 </div>
                 <div class="container-2col separate">
                     <div class="width-50">
                         <label for="phone">Teléfono</label>
                         <input id="phone" type="text" name="Telefono" placeholder="Ejem: (+34)922123123" size="100" required>
-                        <span id="phone_required"></span>
+                        <span id="phone_required">Campo Requerido</span>
                     </div>
                     <div class="width-50 m-left">
                         <label for="cp">Código Postal</label>
                         <input id="cp" type="text" name="CodigoPostal" placeholder="38XXX" size="100" required>
-                        <span id="cp_required"></span>
+                        <span id="cp_required">Campo Requerido</span>
                     </div>
                 </div>
                 <div class="container-3col">
@@ -62,7 +62,7 @@
                             <option value="NIE">NIE</option>
                         </select>
                         <input id="dni" class="aside" type="text" name="DniNie" placeholder="DNI/NIE" size="50" required disabled>
-                        <span id="dni_required"></span>
+                        <span id="dni_required">Campo Requerido</span>
                     </div>
                     <div class="width-33 m-left">
                         <label for="account">Crear Cuenta Como:</label>
@@ -119,7 +119,7 @@
                     <div>
                         <label for="tit">Título</label>
                         <input id="tit" maxlength="15" class="full" type="text" name="PublicacionTitulo" placeholder="Título" size="219" required>
-                        <span id="tit_required"></span>
+                        <span id="tit_required">Campo Requerido</span>
                         <small>/15</small><small id="title">0</small>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                     <div class="separate">
                         <label for="des">Descripción</label>
                         <textarea id="des" maxlength="120" class="full" name="PublicacionDescripcion" cols="270" rows="10" required></textarea>
-                        <span id="des_required"></span>
+                        <span id="des_required">Campo Requerido</span>
                         <small>/120</small><small id="desc">0</small>
                     </div>
                 </div>

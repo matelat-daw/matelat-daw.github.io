@@ -10,15 +10,15 @@
         tit : document.getElementById("tit"), // Elemento input.
         des : document.getElementById("des"), // Elemento textarea.
         aficiones : document.getElementById("aficiones"),
-        username_required : document.getElementById("username_required"),
-        pass_required : document.getElementById("pass_required"),
-        userdata_required : document.getElementById("userdata_required"),
-        surname_required : document.getElementById("surname_required"),
-        phone_required : document.getElementById("phone_required"),
-        cp_required : document.getElementById("cp_required"),
-        dni_required : document.getElementById("dni_required"),
-        tit_required : document.getElementById("tit_required"),
-        des_required : document.getElementById("des_required"),
+        // username_required : document.getElementById("username_required"),
+        // pass_required : document.getElementById("pass_required"),
+        // userdata_required : document.getElementById("userdata_required"),
+        // surname_required : document.getElementById("surname_required"),
+        // phone_required : document.getElementById("phone_required"),
+        // cp_required : document.getElementById("cp_required"),
+        // dni_required : document.getElementById("dni_required"),
+        // tit_required : document.getElementById("tit_required"),
+        // des_required : document.getElementById("des_required"),
         checkboxes : document.querySelectorAll("input[type='checkbox']")
     }
 
