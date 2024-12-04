@@ -27,6 +27,13 @@ input:invalid + #tit_required, input:invalid + #username_required, input:invalid
     color: salmon;
 }
 
+p
+{
+    visibility: visible;
+    font-size: small;
+    color: salmon;
+}
+
 textarea:invalid + #des_required
 {
     visibility: visible;

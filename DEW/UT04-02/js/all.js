@@ -10,9 +10,16 @@ const DOM = {
     desc : document.getElementById("desc"), // Elemeto small.
     tit : document.getElementById("tit"), // Elemento input.
     des : document.getElementById("des"), // Elemento textarea.
+    music : document.getElementById("music"),
+    handmade : document.getElementById("handmade"),
+    sport : document.getElementById("sport"),
+    art : document.getElementById("art"),
+    games : document.getElementById("games"),
+    lecture : document.getElementById("lecture"),
     aficiones : document.getElementById("aficiones"),
     checkboxes : document.querySelectorAll("input[type='checkbox']"),
-    submit : document.getElementById("submit")
+    form : document.getElementById("form"),
+    hobby : document.getElementById("hobby_required")
 };
 
 DOM.tit.addEventListener("input", function()
@@ -27,16 +34,22 @@ DOM.des.addEventListener("input", function()
 
 DOM.check.addEventListener("click", function()
 {
-    {modulo.togglePass(DOM.pass, DOM.check)}
+    modulo.togglePass(DOM.pass, DOM.check)
 });
-DOM.document.addEventListener("change", function()
+DOM.document.addEventListener("change", () =>
 {
-    {modulo.enableDNI(DOM.document, DOM.dni)}
+    modulo.enableDNI(DOM.document, DOM.dni)
 });
-DOM.submit.addEventListener("submit", (e) =>
+DOM.form.addEventListener("submit", (e) =>
 {
-    {let result = modulo.verify(DOM.dni.value)
-        if (!result)
+    let result = modulo.verify(DOM.dni.value)
+    if (!result) // Verifica si el DNI es Correcto.
+    {
+        e.preventDefault();
+    }
+    else
+    {
+        if (index <= 1) // Verifica se se Seleccionó más de 1 Hobby.
         {
             e.preventDefault();
         }
@@ -53,3 +66,52 @@ for (var year = 1960 ; year <= new Date().getFullYear(); year++)
     
 }
 DOM.year.value = 2010;
+
+let index = 0;
+
+DOM.music.addEventListener("click", () =>
+{
+    DOM.checkboxes.forEach(count);
+});
+
+DOM.handmade.addEventListener("click", () =>
+{
+    DOM.checkboxes.forEach(count);
+});
+
+DOM.sport.addEventListener("click", () =>
+{
+    DOM.checkboxes.forEach(count);
+});
+
+DOM.art.addEventListener("click", () =>
+{
+    DOM.checkboxes.forEach(count);
+});
+
+DOM.games.addEventListener("click", () =>
+{
+    DOM.checkboxes.forEach(count);
+});
+
+DOM.lecture.addEventListener("click", () =>
+{
+    DOM.checkboxes.forEach(count);
+});
+
+function count(checkbox)
+{
+    if (checkbox.id != "check")
+    {
+        if (checkbox.checked)
+        {
+            index++;
+            if (index > 1)
+            {
+                console.log(index);
+                DOM.hobby.style.visibility = "hidden";
+            }
+            DOM.aficiones.value += checkbox.value + ",";
+        }
+    }
+}

@@ -9,7 +9,7 @@
 <body>
     <h1>Te Damos la Bienvenida al Formulario con Estilo y Envió de Datos</h1>
     <main>
-        <form action="https://www.w3schools.com/action_page.php" method="post">
+        <form id="form" action="https://www.w3schools.com/action_page.php" method="post">
             <fieldset>
                 <legend>Datos de Usuario</legend>
                 <div class="container-2col">
@@ -67,8 +67,8 @@
                     <div class="width-33 m-left">
                         <label for="account">Crear Cuenta Como:</label>
                         <div class="aside">
-                            <input id="account" class="aside" type="radio" name="CuentaComo" value="particular" checked><label class="aside">Particular</label>
-                            <input class="aside" type="radio" name="CuentaComo" value="empresa"><label class="aside">Empresa</label>
+                            <input id="account" class="aside" type="radio" name="CuentaComo" value="particular" required><label class="aside">Particular</label>
+                            <input class="aside" type="radio" name="CuentaComo" value="empresa"><label class="aside" required>Empresa</label>
                         </div>
                     </div>
                     <div class="width-33 m-left">
@@ -109,9 +109,10 @@
                             <input class="aside" type="checkbox" id="lecture" value="LE">
                             <label for="lecture" class="aside">Lectura</label>
                         </div>
-                        <input type="hidden" name="Aficiones" id="aficiones">
                     </div>
                 </div>
+                <input type="hidden" name="Aficiones" id="aficiones" required>
+                <p id="hobby_required">Selecciona Al Menos 2 Aficiones.</p>
             </fieldset>
             <fieldset>
                 <legend>Datos de Publicación</legend>
@@ -133,7 +134,7 @@
                 </div>
             </fieldset>
             <div class="button">
-                <input id="submit" class="btn" type="submit" value="Envíame!">
+                <input class="btn" type="submit" value="Envíame!">
             </div>
         </form>
     </main>
