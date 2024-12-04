@@ -22,7 +22,7 @@
                         <label for="pass">Contraseña</label>
                         <input id="pass" type="password" name="Contrasena" placeholder="Introduce Contraseña" size="100" required>
                         <span id="pass_required">Campo Requerido</span>
-                        <input id="check" type="checkbox" onchange="togglePass()">
+                        <input id="check" type="checkbox">
                         <label id="checkit" for="check">Mostrar Contraseña</label>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="container-3col">
                     <div class="width-33">
                         <label for="document">DNI/NIE</label>
-                        <select id="document" class="aside" name="TipoDocumento" required onchange="enableDNI(this)">
+                        <select id="document" class="aside" name="TipoDocumento" required>
                             <option value="">...</option>
                             <option value="DNI">DNI</option>
                             <option value="NIE">NIE</option>
@@ -133,10 +133,10 @@
                 </div>
             </fieldset>
             <div class="button">
-                <input class="btn" type="submit" value="Envíame!">
+                <input id="submit" class="btn" type="submit" value="Envíame!">
             </div>
         </form>
     </main>
-    <script src="js/main.js"></script>
+    <script src="js/all.js" type="module"></script>
 </body>
 </html>
