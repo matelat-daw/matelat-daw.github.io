@@ -1,11 +1,17 @@
 // import * as modulo from "./main.js"; // Para usar el modificador Universal hay que crear un alias y acceder a las funciones importadas a través del alias ej: (Alias modulos) = modulos.curso.
 
 const DOM = {
+    form : document.getElementById("form"),
+    username: document.getElementById("username"),
+    pass : document.getElementById("pass"),
+    check : document.getElementById("check"),
+    userdata: document.getElementById("userdata"),
+    surname: document.getElementById("surname"),
+    phone: document.getElementById("phone"),
+    cp: document.getElementById("cp"),
     year : document.getElementById("year"),
     document : document.getElementById("document"),
     dni : document.getElementById("dni"),
-    check : document.getElementById("check"),
-    pass : document.getElementById("pass"),
     title : document.getElementById("title"), // Elemento small.
     desc : document.getElementById("desc"), // Elemeto small.
     tit : document.getElementById("tit"), // Elemento input.
@@ -18,9 +24,53 @@ const DOM = {
     lecture : document.getElementById("lecture"),
     aficiones : document.getElementById("aficiones"),
     checkboxes : document.querySelectorAll("input[type='checkbox']"),
-    form : document.getElementById("form"),
     hobby : document.getElementById("hobby_required")
 };
+
+const ERROR = {
+    username_error : document.getElementById("username_error"),
+    pass_error : document.getElementById("pass_error"),
+    userdata_error : document.getElementById("userdata_error"),
+    surname_error : document.getElementById("surname_error"),
+    phone_error : document.getElementById("phone_error"),
+    cp_error : document.getElementById("cp_error"),
+    dni_error : document.getElementById("dni_error"),
+    title_error : document.getElementById("title_error"),
+    desc_error : document.getElementById("desc_error")
+};
+
+function checkErrors()
+{
+    Object.keys(ERROR).forEach(function(key)
+    {
+        let errors = 0;
+        switch(key)
+        {
+            case "username_error":
+                if (DOM.username.validationMessage != "")
+                {
+                    username_error.innerHTML = DOM.username.validationMessage;
+                    errors++;
+                }
+                break;
+            case "pass_error":
+                if (DOM.pass.validationMessage != "")
+                {
+                    pass_error.innerHTML = DOM.pass.validationMessage;
+                    errors++;
+                }
+                break;
+        }
+    });
+    if (errors > 0)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
 
 DOM.tit.addEventListener("input", function()
 {
@@ -36,10 +86,12 @@ DOM.check.addEventListener("click", function()
 {
     togglePass(DOM.pass, DOM.check)
 });
+
 DOM.document.addEventListener("change", () =>
 {
     enableDNI(DOM.document, DOM.dni)
 });
+
 DOM.form.addEventListener("submit", (e) =>
 {
     let result = verify(DOM.dni.value)
@@ -52,6 +104,14 @@ DOM.form.addEventListener("submit", (e) =>
         if (index <= 1) // Verifica se se Seleccionó más de 1 Hobby.
         {
             e.preventDefault();
+        }
+        else
+        {
+            let errors = checkErrors();
+            if (errors)
+            {
+                e.preventDefault();
+            }
         }
     }
 });
