@@ -1,5 +1,3 @@
-// import * as modulo from "./main.js"; // Para usar el modificador Universal hay que crear un alias y acceder a las funciones importadas a través del alias ej: (Alias modulos) = modulos.curso.
-
 const DOM = {
     form : document.getElementById("form"),
     username: document.getElementById("username"),
@@ -39,11 +37,14 @@ const ERROR = {
     desc_error : document.getElementById("desc_error")
 };
 
+checkErrors();
+
 function checkErrors()
 {
+    let errors = 0;
+
     Object.keys(ERROR).forEach(function(key)
     {
-        let errors = 0;
         switch(key)
         {
             case "username_error":
@@ -57,6 +58,20 @@ function checkErrors()
                 if (DOM.pass.validationMessage != "")
                 {
                     pass_error.innerHTML = DOM.pass.validationMessage;
+                    errors++;
+                }
+                break;
+            case "userdata_error":
+                if (DOM.userdata.validationMessage != "")
+                {
+                    userdata_error.innerHTML = DOM.userdata.validationMessage;
+                    errors++;
+                }
+                break;
+            case "surname_error":
+                if (DOM.surname.validationMessage != "")
+                {
+                    surname_error.innerHTML = DOM.surname.validationMessage;
                     errors++;
                 }
                 break;
@@ -94,21 +109,22 @@ DOM.document.addEventListener("change", () =>
 
 DOM.form.addEventListener("submit", (e) =>
 {
-    let result = verify(DOM.dni.value)
-    if (!result) // Verifica si el DNI es Correcto.
+    let errors = checkErrors();
+    if (errors)
     {
         e.preventDefault();
+        checkErrors();
     }
     else
     {
-        if (index <= 1) // Verifica se se Seleccionó más de 1 Hobby.
+        let result = verify(DOM.dni.value)
+        if (!result) // Verifica si el DNI es Correcto.
         {
             e.preventDefault();
         }
         else
         {
-            let errors = checkErrors();
-            if (errors)
+            if (index <= 1) // Verifica se se Seleccionó más de 1 Hobby.
             {
                 e.preventDefault();
             }
