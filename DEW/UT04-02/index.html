@@ -22,7 +22,7 @@
                             </div>
                             <div class="width-50 m-left">
                                 <label for="pass">Contraseña</label>
-                                <input id="pass" type="password" name="Contrasena" placeholder="Introduce Contraseña" size="60" required>
+                                <input id="pass" type="password" name="Contrasena" placeholder="Introduce Contraseña" size="60" pattern="[0-9]{8}$" maxlength="8" required>
                                 <span id="pass_required">Campo Requerido</span>
                                 <input id="check" type="checkbox">
                                 <label id="checkit" for="check">Mostrar Contraseña</label>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="width-50 m-left">
                                 <label for="cp">Código Postal</label>
-                                <input id="cp" type="number" name="CodigoPostal" placeholder="38XXX" maxlength="5" min="38000" max="38999" pattern="[0-9]{5}" size="58" required>
+                                <input id="cp" type="number" name="CodigoPostal" placeholder="38XXX" maxlength="5" min="38000" max="38999" pattern="^38[0-9]{3}$" size="58" required>
                                 <span id="cp_required">Campo Requerido</span>
                             </div>
                         </div>
