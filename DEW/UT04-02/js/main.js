@@ -1,5 +1,6 @@
 const DOM = {
     form : document.getElementById("form"),
+    form_submit : document.getElementById("form_submit"),
     username: document.getElementById("username"),
     pass : document.getElementById("pass"),
     check : document.getElementById("check"),
@@ -10,6 +11,9 @@ const DOM = {
     year : document.getElementById("year"),
     document : document.getElementById("document"),
     dni : document.getElementById("dni"),
+    par : document.getElementById("par"),
+    emp : document.getElementById("emp"),
+    account : document.getElementById("account_required"),
     title : document.getElementById("title"), // Elemento small.
     desc : document.getElementById("desc"), // Elemeto small.
     tit : document.getElementById("tit"), // Elemento input.
@@ -33,6 +37,8 @@ const ERROR = {
     phone_error : document.getElementById("phone_error"),
     cp_error : document.getElementById("cp_error"),
     dni_error : document.getElementById("dni_error"),
+    account_error : document.getElementById("account_error"),
+    hobby_error : document.getElementById("hobby_error"),
     title_error : document.getElementById("title_error"),
     desc_error : document.getElementById("desc_error")
 };
@@ -53,12 +59,20 @@ function checkErrors()
                     username_error.innerHTML = DOM.username.validationMessage;
                     errors++;
                 }
+                else
+                {
+                    username_error.innerHTML = "";
+                }
                 break;
             case "pass_error":
                 if (DOM.pass.validationMessage != "")
                 {
                     pass_error.innerHTML = DOM.pass.validationMessage;
                     errors++;
+                }
+                else
+                {
+                    pass_error.innerHTML = "";
                 }
                 break;
             case "userdata_error":
@@ -67,6 +81,10 @@ function checkErrors()
                     userdata_error.innerHTML = DOM.userdata.validationMessage;
                     errors++;
                 }
+                else
+                {
+                    userdata_error.innerHTML = "";
+                }
                 break;
             case "surname_error":
                 if (DOM.surname.validationMessage != "")
@@ -74,18 +92,119 @@ function checkErrors()
                     surname_error.innerHTML = DOM.surname.validationMessage;
                     errors++;
                 }
+                else
+                {
+                    surname_error.innerHTML = "";
+                }
+                break;
+            case "phone_error":
+                if (DOM.phone.validationMessage != "")
+                {
+                    phone_error.innerHTML = DOM.phone.validationMessage;
+                    errors++;
+                }
+                else
+                {
+                    phone_error.innerHTML = "";
+                }
+                break;
+            case "cp_error":
+                if (DOM.cp.validationMessage != "")
+                {
+                    cp_error.innerHTML = DOM.cp.validationMessage;
+                    errors++;
+                }
+                else
+                {
+                    cp_error.innerHTML = "";
+                }
+                break;
+            case "dni_error":
+                if (DOM.dni.disabled)
+                {
+                    dni_error.innerHTML = DOM.phone.validationMessage;
+                    errors++;
+                }
+                else
+                {
+                    if (DOM.dni.validationMessage != "")
+                    {
+                        dni_error.innerHTML = DOM.dni.validationMessage;
+                        errors++;
+                    }
+                    else
+                    {
+                        dni_error.innerHTML = "";
+                    }
+                }
+                break;
+            case "account_error":
+                if (DOM.account.style.visibility != "hidden")
+                {
+                    account_error.innerHTML = DOM.account.innerHTML;
+                    errors++;
+                }
+                else
+                {
+                    account_error.innerHTML = "";
+                }
+                break;
+            case "title_error":
+                if (DOM.tit.validationMessage != "")
+                {
+                    title_error.innerHTML = DOM.tit.validationMessage;
+                    errors++;
+                }
+                else
+                {
+                    title_error.innerHTML = "";
+                }
+                break;
+            case "desc_error":
+                if (DOM.des.validationMessage != "")
+                {
+                    desc_error.innerHTML = DOM.des.validationMessage;
+                    errors++;
+                }
+                else
+                {
+                    desc_error.innerHTML = "";
+                }
+                break;
+            case "hobby_error":
+                if (DOM.hobby.style.visibility != "hidden")
+                {
+                    hobby_error.innerHTML = DOM.hobby.innerHTML;
+                    errors++;
+                }
+                else
+                {
+                    hobby_error.innerHTML = "";
+                }
                 break;
         }
     });
     if (errors > 0)
     {
-        return false;
+        return true;
     }
     else
     {
-        return true;
+        return false;
     }
 }
+
+DOM.form_submit.addEventListener("click", () => {
+    checkErrors();
+});
+
+DOM.par.addEventListener("click", () => {
+    DOM.account.innerHTML = "";
+});
+
+DOM.emp.addEventListener("click", () => {
+    DOM.account.innerHTML = "";
+});
 
 DOM.tit.addEventListener("input", function()
 {
@@ -124,9 +243,14 @@ DOM.form.addEventListener("submit", (e) =>
         }
         else
         {
-            if (index <= 1) // Verifica se se Seleccionó más de 1 Hobby.
+            if (already.length <= 1) // Verifica se se Seleccionó más de 1 Hobby.
             {
                 e.preventDefault();
+            }
+            else
+            {
+                for (var i = 0; i < already.length; i++)
+                    DOM.aficiones.value += already[i] + ", ";
             }
         }
     }
@@ -143,52 +267,101 @@ for (var year = 1920 ; year <= 2010; year++)
 }
 DOM.year.value = 2010;
 
-let index = 0;
+let already = [];
 
 DOM.music.addEventListener("click", () =>
 {
-    DOM.checkboxes.forEach(count);
+    if (DOM.music.checked)
+    {
+        already.push(DOM.music.value);
+    }
+    else
+    {
+        fixHobbies(DOM.music.value);
+    }
+    checkHobbies();
 });
 
 DOM.handmade.addEventListener("click", () =>
 {
-    DOM.checkboxes.forEach(count);
+    if (DOM.handmade.checked)
+    {
+        already.push(DOM.handmade.value);
+    }
+    else
+    {
+        fixHobbies(DOM.handmade.value);
+    }
+    checkHobbies();
 });
 
 DOM.sport.addEventListener("click", () =>
 {
-    DOM.checkboxes.forEach(count);
+    if (DOM.sport.checked)
+    {
+        already.push(DOM.sport.value);
+    }
+    else
+    {
+        fixHobbies(DOM.sport.value);
+    }
+    checkHobbies();
 });
 
 DOM.art.addEventListener("click", () =>
 {
-    DOM.checkboxes.forEach(count);
+    if (DOM.art.checked)
+    {
+        already.push(DOM.art.value);
+    }
+    else
+    {
+        fixHobbies(DOM.art.value);
+    }
+    checkHobbies();
 });
 
 DOM.games.addEventListener("click", () =>
 {
-    DOM.checkboxes.forEach(count);
+    if (DOM.games.checked)
+    {
+        already.push(DOM.games.value);
+    }
+    else
+    {
+        fixHobbies(DOM.games.value);
+    }
+    checkHobbies();
 });
 
 DOM.lecture.addEventListener("click", () =>
 {
-    DOM.checkboxes.forEach(count);
+    if (DOM.lecture.checked)
+    {
+        already.push(DOM.lecture.value)
+    }
+    else
+    {
+        fixHobbies(DOM.lecture.value);
+    }
+    checkHobbies();
 });
 
-function count(checkbox)
+function fixHobbies(hobby)
 {
-    if (checkbox.id != "check")
+    let position = already.indexOf(hobby);
+    already.splice(position, 1);
+}
+
+function checkHobbies()
+{
+    if (already.length > 1)
     {
-        if (checkbox.checked)
-        {
-            index++;
-            if (index > 1)
-            {
-                console.log(index);
-                DOM.hobby.style.visibility = "hidden";
-            }
-            DOM.aficiones.value += checkbox.value + ",";
-        }
+        DOM.hobby.style.visibility = "hidden";
+    }
+    else
+    {
+        DOM.hobby.style.visibility = "visible";
     }
 }
 

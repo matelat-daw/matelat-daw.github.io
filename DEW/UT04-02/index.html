@@ -17,12 +17,12 @@
                         <div class="container-2col">
                             <div class="width-50">
                                 <label for="username">Nombre de Usuario</label>
-                                <input id="username" type="text" name="NombreUsuario" placeholder="Nombre de Usuario" size="50" required>
+                                <input id="username" type="text" name="NombreUsuario" placeholder="Nombre de Usuario" size="60" required>
                                 <span id="username_required">Campo Requerido</span>
                             </div>
                             <div class="width-50 m-left">
                                 <label for="pass">Contraseña</label>
-                                <input id="pass" type="password" name="Contrasena" placeholder="Introduce Contraseña" size="50" required>
+                                <input id="pass" type="password" name="Contrasena" placeholder="Introduce Contraseña" size="60" required>
                                 <span id="pass_required">Campo Requerido</span>
                                 <input id="check" type="checkbox">
                                 <label id="checkit" for="check">Mostrar Contraseña</label>
@@ -34,24 +34,24 @@
                         <div class="container-2col">
                             <div class="width-50">
                                 <label for="userdata">Nombre</label>
-                                <input id="userdata" type="text" name="Nombre" placeholder="Nombre" size="50" required>
+                                <input id="userdata" type="text" name="Nombre" placeholder="Nombre" size="60" required>
                                 <span id="userdata_required">Campo Requerido</span>
                             </div>
                             <div class="width-50 m-left">
                                 <label for="surnames">Apellidos</label>
-                                <input id="surname" type="text" name="Apellidos" placeholder="Apellidos" size="50" required>
+                                <input id="surname" type="text" name="Apellidos" placeholder="Apellidos" size="60" required>
                                 <span id="surname_required">Campo Requerido</span>
                             </div>
                         </div>
                         <div class="container-2col separate">
                             <div class="width-50">
                                 <label for="phone">Teléfono</label>
-                                <input id="phone" type="text" name="Telefono" placeholder="Ejem: (+34)922123123" size="50" required>
+                                <input id="phone" type="text" name="Telefono" placeholder="Ejem: (+34)922123123" size="60" required>
                                 <span id="phone_required">Campo Requerido</span>
                             </div>
                             <div class="width-50 m-left">
                                 <label for="cp">Código Postal</label>
-                                <input id="cp" type="number" name="CodigoPostal" placeholder="38XXX" maxlength="5" min="38000" max="38999" pattern="[0-9]{5}" size="50" required>
+                                <input id="cp" type="number" name="CodigoPostal" placeholder="38XXX" maxlength="5" min="38000" max="38999" pattern="[0-9]{5}" size="58" required>
                                 <span id="cp_required">Campo Requerido</span>
                             </div>
                         </div>
@@ -63,14 +63,14 @@
                                     <option value="DNI">DNI</option>
                                     <option value="NIE">NIE</option>
                                 </select>
-                                <input id="dni" class="aside" type="text" name="DniNie" placeholder="DNI/NIE" required disabled>
+                                <input id="dni" class="aside" type="text" name="DniNie" placeholder="DNI/NIE" size="40" required disabled>
                                 <span id="dni_required">Campo Requerido</span>
                             </div>
                             <div class="width-33 m-left">
                                 <label for="account">Crear Cuenta Como:</label>
                                 <div class="aside">
-                                    <input id="account" class="aside" type="radio" name="CuentaComo" value="particular" required><label class="aside">Particular</label>
-                                    <input class="aside" type="radio" name="CuentaComo" value="empresa"><label class="aside" required>Empresa</label>
+                                    <input id="par" class="aside" type="radio" name="CuentaComo" value="particular" required><label class="aside">Particular</label>
+                                    <input id="emp" class="aside" type="radio" name="CuentaComo" value="empresa"><label class="aside" required>Empresa</label>
                                     <span id="account_required">Campo Requerido</span>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@
                         </div>
                     </fieldset>
                     <div class="button">
-                        <input class="btn" type="submit" value="Envíame!">
+                        <input id="form_submit" class="btn" type="submit" value="Envíame!">
                     </div>
                 </form>
             </main>
@@ -145,24 +145,25 @@
         <div class="view2">
             <h1 class="center">Lista de Errores</h1>
             <h3>Cuando no haya Errores en el Formulario no Verás Nada Aquí.</h3>
-            <span class="error">Nombre de Usuario</span>
-            <p id="username_error"></p>
-            <span class="error"></span>
-            <p id="pass_error"></p>
-            <span></span>
-            <p id="userdata_error" class="error"></p>
-            <span></span>
-            <p id="surname_error" class="error"></p>
-            <span></span>
-            <p id="phone_error" class="error"></p>
-            <span></span>
-            <p id="cp_error" class="error"></p>
-            <span></span>
-            <p id="dni_error" class="error"></p>
-            <span></span>
-            <p id="title_error" class="error"></p>
-            <span></span>
-            <p id="desc_error" class="error"></p>
+            <div><span class="error">Nombre de Usuario: </span><p id="username_error"></p></div>
+            <div><span class="error">Contraseña: </span><p id="pass_error"></p></div>
+            <div><span class="error">Nombres: </span><p id="userdata_error" class="error"></p></div>
+            <div><span class="error">Apellidos: </span>
+            <p id="surname_error" class="error"></p></div>
+            <div><span class="error">Teléfono: </span>
+            <p id="phone_error" class="error"></p></div>
+            <div><span class="error">Código Postal: </span>
+            <p id="cp_error" class="error"></p></div>
+            <div><span class="error">DNI/NIE: </span>
+            <p id="dni_error" class="error"></p></div>
+            <div><span class="error">Cuenta: </span>
+            <p id="account_error" class="error"></p></div>
+            <div><span class="error">Aficiones: </span>
+            <p id="hobby_error" class="error"></p></div>
+            <div><span class="error">Título: </span>
+            <p id="title_error" class="error"></p></div>
+            <div><span class="error">Descripción: </span>
+            <p id="desc_error" class="error"></p></div>
         </div>
     </div>
     <script src="js/main.js" type="module"></script>

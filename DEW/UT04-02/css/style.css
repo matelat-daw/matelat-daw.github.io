@@ -15,12 +15,30 @@ span
     visibility: hidden;
 }
 
+#account_required
+{
+    display: block;
+    visibility: visible;
+    font-size: small;
+    color: salmon;
+}
+
+p
+{
+    display: inline-block;
+}
+
+.error
+{
+    visibility: visible;
+}
+
 input:invalid, textarea:invalid /* Si el campo es requerido y aun está vacío pone un borde color salmon a los campos. */
 {
     border: 1px solid salmon;
 }
 
-input:invalid + #tit_required, input:invalid + #username_required, input:invalid + #pass_required, input:invalid + #userdata_required, input:invalid + #surname_required, input:invalid + #phone_required, input:invalid + #cp_required, input:invalid + #account_required, input:invalid + #dni_required
+input:invalid + #tit_required, input:invalid + #username_required, input:invalid + #pass_required, input:invalid + #userdata_required, input:invalid + #surname_required, input:invalid + #phone_required, input:invalid + #cp_required, input:invalid + #dni_required
 {
     visibility: visible;
     font-size: small;
@@ -135,7 +153,7 @@ small
 
 .width-33
 {
-    width: 22%;
+    width: 33%;
 }
 
 .button
