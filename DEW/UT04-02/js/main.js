@@ -199,11 +199,11 @@ DOM.form_submit.addEventListener("click", () => {
 });
 
 DOM.par.addEventListener("click", () => {
-    DOM.account.innerHTML = "";
+    DOM.account.style.visibility = "hidden";
 });
 
 DOM.emp.addEventListener("click", () => {
-    DOM.account.innerHTML = "";
+    DOM.account.style.visibility = "hidden";
 });
 
 DOM.tit.addEventListener("input", function()
@@ -229,6 +229,7 @@ DOM.document.addEventListener("change", () =>
 DOM.form.addEventListener("submit", (e) =>
 {
     let errors = checkErrors();
+    console.log("Hay: " + errors);
     if (errors)
     {
         e.preventDefault();
@@ -236,21 +237,21 @@ DOM.form.addEventListener("submit", (e) =>
     }
     else
     {
-        let result = verify(DOM.dni.value)
+        let result = verify(DOM.dni.value);
         if (!result) // Verifica si el DNI es Correcto.
         {
             e.preventDefault();
         }
         else
         {
-            if (already.length <= 1) // Verifica se se Seleccionó más de 1 Hobby.
+            if (hobbies.length <= 1) // Verifica se se Seleccionó más de 1 Hobby.
             {
                 e.preventDefault();
             }
             else
             {
-                for (var i = 0; i < already.length; i++)
-                    DOM.aficiones.value += already[i] + ", ";
+                for (var i = 0; i < hobbies.length; i++)
+                    DOM.aficiones.value += hobbies[i] + ", ";
             }
         }
     }
@@ -267,13 +268,13 @@ for (var year = 1920 ; year <= 2010; year++)
 }
 DOM.year.value = 2010;
 
-let already = [];
+let hobbies = [];
 
 DOM.music.addEventListener("click", () =>
 {
     if (DOM.music.checked)
     {
-        already.push(DOM.music.value);
+        hobbies.push(DOM.music.value);
     }
     else
     {
@@ -286,7 +287,7 @@ DOM.handmade.addEventListener("click", () =>
 {
     if (DOM.handmade.checked)
     {
-        already.push(DOM.handmade.value);
+        hobbies.push(DOM.handmade.value);
     }
     else
     {
@@ -299,7 +300,7 @@ DOM.sport.addEventListener("click", () =>
 {
     if (DOM.sport.checked)
     {
-        already.push(DOM.sport.value);
+        hobbies.push(DOM.sport.value);
     }
     else
     {
@@ -312,7 +313,7 @@ DOM.art.addEventListener("click", () =>
 {
     if (DOM.art.checked)
     {
-        already.push(DOM.art.value);
+        hobbies.push(DOM.art.value);
     }
     else
     {
@@ -325,7 +326,7 @@ DOM.games.addEventListener("click", () =>
 {
     if (DOM.games.checked)
     {
-        already.push(DOM.games.value);
+        hobbies.push(DOM.games.value);
     }
     else
     {
@@ -338,7 +339,7 @@ DOM.lecture.addEventListener("click", () =>
 {
     if (DOM.lecture.checked)
     {
-        already.push(DOM.lecture.value)
+        hobbies.push(DOM.lecture.value)
     }
     else
     {
@@ -349,13 +350,13 @@ DOM.lecture.addEventListener("click", () =>
 
 function fixHobbies(hobby)
 {
-    let position = already.indexOf(hobby);
-    already.splice(position, 1);
+    let position = hobbies.indexOf(hobby);
+    hobbies.splice(position, 1);
 }
 
 function checkHobbies()
 {
-    if (already.length > 1)
+    if (hobbies.length > 1)
     {
         DOM.hobby.style.visibility = "hidden";
     }
@@ -399,16 +400,16 @@ function verify(dni) // Función para validar el D.N.I.
         if (letras != letra.toUpperCase())
         {
             alert('El D.N.I. o N.I.E. es Incorrecto, Verifica que los Números y la Letra o Letras Estén Bien.');
-            return false; // Si devuelve false no se envía el formulario.
+            return false;
         }
         else
         {
-            return true; // Devuelvo true, envía el formulario.
+            return true;
         }
     }
     else
     {
         alert('El D.N.I. o N.I.E. es Incorrecto, Verifica que los Números y la Letra o Letras Estén Bien.');
-        return false; // Si devuelve false no se envía el formulario.
+        return false;
     }
 }

@@ -43,6 +43,7 @@ input:invalid + #tit_required, input:invalid + #username_required, input:invalid
     visibility: visible;
     font-size: small;
     color: salmon;
+    display: block;
 }
 
 p
