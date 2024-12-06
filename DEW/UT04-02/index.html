@@ -23,7 +23,7 @@
                             <div class="width-50 m-left">
                                 <label for="pass">Contraseña</label>
                                 <input id="pass" type="password" name="Contrasena" placeholder="Introduce Contraseña (8 Números)" size="60" pattern="[0-9]{8}$" maxlength="8" required>
-                                <span id="pass_required">La Contraseña es Obligatoria</span>
+                                <span id="pass_required">Tu Contraseña</span>
                                 <input id="check" type="checkbox">
                                 <label id="checkit" for="check">Mostrar Contraseña</label>
                             </div>
@@ -63,6 +63,7 @@
                                     <option value="DNI">DNI</option>
                                     <option value="NIE">NIE</option>
                                 </select>
+                                <span id="doc_required">Debes Seleccionar un Tipo de Documento</span>
                                 <input id="dni" class="aside" type="text" name="DniNie" placeholder="DNI/NIE" size="40" required disabled>
                                 <span id="dni_required">El D.N.I. es Obligatorio</span>
                             </div>
@@ -76,7 +77,10 @@
                             </div>
                             <div class="width-33 m-left">
                                 <label for="year">Año de Nacimiento</label>
-                                <select id="year" name="AnioNacimiento"></select>
+                                <select id="year" name="AnioNacimiento" required>
+                                    <option value="">Selecciona Tu Año de Nacimiento</option>
+                                </select>
+                                <span id="anio_required">Tu Año de Nacimiento</span>
                             </div>
                         </div>
                         <div class="container-3col">
@@ -122,7 +126,7 @@
                         <div class="container-1col">
                             <div>
                                 <label for="tit">Título</label>
-                                <input id="tit" maxlength="15" class="full" type="text" name="PublicacionTitulo" placeholder="Título" size="80" required>
+                                <input id="tit" maxlength="15" type="text" name="PublicacionTitulo" placeholder="Título" size="125" required>
                                 <span id="tit_required">Escribe un Título</span>
                                 <small>/15</small><small id="title">0</small>
                             </div>
@@ -130,7 +134,7 @@
                         <div class="container-1col">
                             <div class="separate">
                                 <label for="des">Descripción</label>
-                                <textarea id="des" maxlength="120" class="full" name="PublicacionDescripcion" cols="220" rows="10" required></textarea>
+                                <textarea id="des" maxlength="120" name="PublicacionDescripcion" cols="155" rows="10" required></textarea>
                                 <span id="des_required">Danos tu Descripción</span>
                                 <small>/120</small><small id="desc">0</small>
                             </div>
@@ -148,22 +152,16 @@
             <div><span class="error">Nombre de Usuario: </span><p id="username_error"></p></div>
             <div><span class="error">Contraseña: </span><p id="pass_error"></p></div>
             <div><span class="error">Nombres: </span><p id="userdata_error"></p></div>
-            <div><span class="error">Apellidos: </span>
-            <p id="surname_error"></p></div>
-            <div><span class="error">Teléfono: </span>
-            <p id="phone_error"></p></div>
-            <div><span class="error">Código Postal: </span>
-            <p id="cp_error"></p></div>
-            <div><span class="error">DNI/NIE: </span>
-            <p id="dni_error"></p></div>
-            <div><span class="error">Cuenta: </span>
-            <p id="account_error"></p></div>
-            <div><span class="error">Aficiones: </span>
-            <p id="hobby_error"></p></div>
-            <div><span class="error">Título: </span>
-            <p id="title_error"></p></div>
-            <div><span class="error">Descripción: </span>
-            <p id="desc_error"></p></div>
+            <div><span class="error">Apellidos: </span><p id="surname_error"></p></div>
+            <div><span class="error">Teléfono: </span><p id="phone_error"></p></div>
+            <div><span class="error">Código Postal: </span><p id="cp_error"></p></div>
+            <div><span class="error">Tipo de Documento: </span><p id="doc_error"></p></div>
+            <div><span class="error">DNI/NIE: </span><p id="dni_error"></p></div>
+            <div><span class="error">Cuenta: </span><p id="account_error"></p></div>
+            <div><span class="error">Año de Nacimiento: </span><p id="anio_error"></p></div>
+            <div><span class="error">Aficiones: </span><p id="hobby_error"></p></div>
+            <div><span class="error">Título: </span><p id="title_error"></p></div>
+            <div><span class="error">Descripción: </span><p id="desc_error"></p></div>
         </div>
     </div>
     <script src="js/main.js" type="module"></script>

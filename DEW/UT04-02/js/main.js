@@ -36,8 +36,10 @@ const ERROR = {
     surname_error : document.getElementById("surname_error"),
     phone_error : document.getElementById("phone_error"),
     cp_error : document.getElementById("cp_error"),
+    doc_error : document.getElementById("doc_error"),
     dni_error : document.getElementById("dni_error"),
     account_error : document.getElementById("account_error"),
+    anio_error : document.getElementById("anio_error"),
     hobby_error : document.getElementById("hobby_error"),
     title_error : document.getElementById("title_error"),
     desc_error : document.getElementById("desc_error")
@@ -119,10 +121,21 @@ function checkErrors()
                     cp_error.innerHTML = "";
                 }
                 break;
+            case "doc_error":
+                if (DOM.document.validationMessage != "")
+                {
+                    doc_error.innerHTML = DOM.document.validationMessage;
+                    errors++;
+                }
+                else
+                {
+                    doc_error.innerHTML = "";
+                }
+                break;
             case "dni_error":
                 if (DOM.dni.disabled)
                 {
-                    dni_error.innerHTML = DOM.phone.validationMessage;
+                    dni_error.innerHTML = DOM.dni.validationMessage;
                     errors++;
                 }
                 else
@@ -147,6 +160,17 @@ function checkErrors()
                 else
                 {
                     account_error.innerHTML = "";
+                }
+                break;
+            case "anio_error":
+                if (DOM.year.validationMessage != "")
+                {
+                    anio_error.innerHTML = DOM.year.validationMessage;
+                    errors++;
+                }
+                else
+                {
+                    anio_error.innerHTML = "";
                 }
                 break;
             case "title_error":
@@ -244,41 +268,38 @@ DOM.form.addEventListener("submit", (e) =>
         }
         else
         {
-            if (hobbies.length <= 1) // Verifica se se Seleccionó más de 1 Hobby.
+            if (hobbies.length <= 1) // Verifica si no se Seleccionó Más de 1 Hobby.
             {
                 e.preventDefault();
             }
-            else
+            else // Si se Selecionó Más de 1.
             {
-                for (var i = 0; i < hobbies.length; i++)
-                    DOM.aficiones.value += hobbies[i] + ", ";
+                DOM.aficiones.value = hobbies.join(", ");
             }
         }
     }
 });
 
-for (var year = 1920 ; year <= 2010; year++)
+for (var year = 1920 ; year <= 2010; year++) // Bucle para Agregar los Años al Selector del Año de Nacimiento desde 1920 a 2010.
 {  
     var option = document.createElement("option");
     option.text = year;
     option.value = year;
     
-    DOM.year.appendChild(option)
-    
+    DOM.year.appendChild(option);   
 }
-DOM.year.value = 2010;
 
-let hobbies = [];
+let hobbies = []; // Array de Aficiones, Contendrá las Aficiones Seleccionadas de los Checkboxes, Hay que Agregar un Event Listener a cada Checkbox.
 
 DOM.music.addEventListener("click", () =>
 {
-    if (DOM.music.checked)
+    if (DOM.music.checked) // Si el Checkbox music Está Chequeado.
     {
-        hobbies.push(DOM.music.value);
+        hobbies.push(DOM.music.value); // Lo Agrega al Array.
     }
-    else
+    else // Si se Deselecciona.
     {
-        fixHobbies(DOM.music.value);
+        fixHobbies(DOM.music.value); // Llama a la Función fixHobbies Pasandole el Valor del Checkbox por Parametro.
     }
     checkHobbies();
 });
@@ -348,41 +369,42 @@ DOM.lecture.addEventListener("click", () =>
     checkHobbies();
 });
 
-function fixHobbies(hobby)
+function fixHobbies(hobby) // Función fixHobbies Recibe el Valor del Input Type Checkbox.
 {
-    let position = hobbies.indexOf(hobby);
-    hobbies.splice(position, 1);
+    let index = hobbies.indexOf(hobby); // Obtiene el Índice en el Array.
+    hobbies.splice(index, 1); // Lo Elimina del Array.
 }
 
-function checkHobbies()
+function checkHobbies() // Función Para Verificar la Cantidad de Aficiones que se Han Añadido.
 {
-    if (hobbies.length > 1)
+    if (hobbies.length > 1) // Si en el Array Hay Más de 1.
     {
-        DOM.hobby.style.visibility = "hidden";
+        DOM.hobby.style.visibility = "hidden"; // Oculta el Mensaje Selecciona al Menos 2 Aficiones.
     }
-    else
+    else // Si no Hay 1 o Más de 1 Afición.
     {
-        DOM.hobby.style.visibility = "visible";
+        DOM.hobby.style.visibility = "visible"; // Muestra el Mensaje.
     }
 }
 
-function togglePass(pass, check){
-    pass.type = check.checked ? "text" : "password";
-}
-
-function enableDNI(element, dni)
+function togglePass(pass, check) // Función que Cambia el Tipo de Dato del Input Type Password, Dependiendo de si se Chequea el Input Type Checkbox, Recibe el Input Password y el Checkbox.
 {
-    if (element.value != "")
+    pass.type = check.checked ? "text" : "password"; // Si el Checkbox Está Chequeado, lo Convierte a Tipo Texto, si no a Tipo Password.
+}
+
+function enableDNI(selector, dni) // Activa el Input para el Número de DNI, Recibe el Selector de tipo y el Input del DNI/NIE.
+{
+    if (selector.value != "") // Si el Valor del Selector no está Vacío.
     {
-        dni.disabled = false;
+        dni.disabled = false; // Habilita el Input del DNI/NIE.
     }
-    else
+    else // Si Está Vacio.
     {
-        dni.disabled = true;
+        dni.disabled = true; // Lo Deshabilita.
     }
 }
 
-function verify(dni) // Función para validar el D.N.I.
+function verify(dni) // Función para validar D.N.I. y N.I.E., Recibe el Valor del Input del DNI/NIE.
 {
     var numero, letra, letras;
     var expresion_regular_dni = /^[XYZ]?\d{2,9}[A-Z]$/;

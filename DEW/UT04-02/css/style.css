@@ -23,22 +23,17 @@ span
     color: salmon;
 }
 
-p
-{
-    display: inline-block;
-}
-
 .error
 {
     visibility: visible;
 }
 
-input:invalid, textarea:invalid /* Si el campo es requerido y aun está vacío pone un borde color salmon a los campos. */
+input:invalid, textarea:invalid, select:invalid /* Si el campo es requerido y aun está vacío pone un borde color salmon a los campos. */
 {
     border: 1px solid salmon;
 }
 
-input:invalid + #tit_required, input:invalid + #username_required, input:invalid + #pass_required, input:invalid + #userdata_required, input:invalid + #surname_required, input:invalid + #phone_required, input:invalid + #cp_required, input:invalid + #dni_required
+input:invalid + #tit_required, input:invalid + #username_required, input:invalid + #pass_required, input:invalid + #userdata_required, input:invalid + #surname_required, input:invalid + #phone_required, input:invalid + #cp_required, input:invalid + #dni_required, select:invalid + #doc_required, select:invalid + #anio_required, textarea:invalid + #des_required
 {
     visibility: visible;
     font-size: small;
@@ -48,13 +43,7 @@ input:invalid + #tit_required, input:invalid + #username_required, input:invalid
 
 p
 {
-    visibility: visible;
-    font-size: small;
-    color: salmon;
-}
-
-textarea:invalid + #des_required
-{
+    display: inline-block;
     visibility: visible;
     font-size: small;
     color: salmon;
@@ -86,11 +75,6 @@ small
 #year
 {
     width: 20em;
-}
-
-.full
-{
-    width: 50%;
 }
 
 .aside
@@ -125,7 +109,7 @@ small
 {
     display: flex;
     grid-template-columns: 1fr;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .container-2col
@@ -154,7 +138,7 @@ small
 
 .width-33
 {
-    width: 33%;
+    width: 33.33%;
 }
 
 .button
